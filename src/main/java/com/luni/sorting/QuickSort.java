@@ -1,8 +1,8 @@
 package com.luni.sorting;
 
-public class QuickSort {
+public final class QuickSort {
 	public void sort(int[] arr) {
-		 partition(arr, 0, arr.length -1);
+		quickSort(arr, 0, arr.length - 1);
 	}
 
 	private void swap(int[] arr, int index1, int index2) {
@@ -11,22 +11,26 @@ public class QuickSort {
 		arr[index2] = temp;
 	}
 
-	public void partition(int[] arr, int low, int high) {
+	private void quickSort(int[] arr, int low, int high) {
+		if (low < high) {
+			int partition = partition(arr, low, high);
+			quickSort(arr, partition + 1, high);
+			quickSort(arr, low, partition - 1);
+		}
+	}
 
-		if (low < high) {			
-				int pivot = arr[high];
+	private int partition(int[] arr, int low, int high) {
+		int pivot = arr[high];
+		int i = low;
 
-				int i = low;
-				for (int j = low ; j < high; j++) {
-					if (arr[j] < pivot) {
-						swap(arr, i, j);
-						i++;
-					}
-				}
-				swap(arr, i, high);
-
-				partition(arr, i + 1, high);
-				partition(arr, low, i-1);
+		for (int j = low; j < high; j++) {
+			if (arr[j] < pivot) {
+				swap(arr, i, j);
+				i++;
 			}
+		}
+
+		swap(arr, i, high);
+		return i;
 	}
 }
