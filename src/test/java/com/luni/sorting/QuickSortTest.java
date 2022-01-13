@@ -8,8 +8,8 @@ import java.util.stream.*;
 
 public class QuickSortTest {
 
-	@DisplayName("Should calculate the minium number of steps")
-	@ParameterizedTest(name = "{index} => steps={0}, Stairs={2}")
+	@DisplayName("Should sort item of array properly.")
+	@ParameterizedTest
 	@MethodSource("arraysToSort")
 	void testMinSteps(int[] inputArray, int[] sortedArray) {
 
