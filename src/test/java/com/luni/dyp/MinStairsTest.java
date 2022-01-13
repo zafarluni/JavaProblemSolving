@@ -6,8 +6,6 @@ import org.junit.jupiter.params.provider.*;
 
 import java.util.stream.*;
 
-import com.luni.dyp.MinStairs;
-
 public class MinStairsTest {
 
 	@DisplayName("Should calculate the minium number of steps")

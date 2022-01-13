@@ -1,30 +1,20 @@
 package com.luni.main;
 
-import com.luni.dyp.*;
+import java.util.*;
+import com.luni.sorting.*;
 
-public class App 
-{
-	  public static void main( String[] args )
-    {			
-			var x  = new int[]{10, 15, 30, 5};
-			System.out.println(getMinCost(x));
-    }
+public class App {
+	public static void main(String []args) {
 
-		public static int getMinCost(int []array){			
-			return getCost(array.length, array);
-		}
+		System.out.println("=============================");
+		
+		int[] arr = { 3, 6, 5, 1, 4, 2 };
+		QuickSort sort = new QuickSort();
 
-		static int getCost(int n, int []arr){
-			if (n < 0)
-				return 0;
+		System.out.println("Before => " + Arrays.toString(arr));
 
-			var stepCost = (n >= arr.length)? 0 : arr[n];
+		sort.partition(arr, 0, arr.length -1);
 
-			return stepCost + Math.min(getCost(n-2, arr),getCost(n-1, arr)); 			
-		}
+		System.out.println("After => " + Arrays.toString(arr));
+	}
 }
-//				Fin
-//			5
-//		30
-//	15
-//10
